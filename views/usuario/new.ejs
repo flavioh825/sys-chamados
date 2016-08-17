@@ -1,0 +1,21 @@
+<form action="/usuario/create" method="POST">
+    <h2>Novo Usuario</h2>
+    <label>Nome:</label>
+    <input type="text" name="nome" id="nome" placeholder="Nome" value="" />
+    <label>Sobrenome:</label>
+    <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" value="" />
+    <label>Ramal:</label>
+    <input type="text" name="ramal" id="ramal" placeholder="Ramal" value="" />
+    <label>E-mail:</label>
+    <input type="email" name="email" id="email" placeholder="E-mail" value="" />
+    <label>Senha:</label>
+    <input type="password" name="senha" id="senha" placeholder="Senha" value="" />
+    <label>Setor:</label>
+    <select name="idsetor" id='idsetor'>
+    	<option value="">Selecione</option>
+        <% _.each(setor, function(set){ %>
+    	   <option value="<%= set.id %>"><%= set.nome %></option>
+        <% }) %>
+    </select>
+    <input type="submit" name="save" value="Salvar" />
+</form>

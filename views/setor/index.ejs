@@ -1,0 +1,25 @@
+<h3>Setores</h3>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Andar</th>
+        <th>Sala</th>
+        <th>Unidade</th>
+        <th></th>
+    </tr>
+    <% _.each(setor, function(set){ %>
+    <tr data-id="<%= set.id %>" data-model="setor">
+        <td><%= set.id %></td>
+        <td><%= set.nome %></td>
+        <td><%= set.andar %></td>
+        <td><%= (set.numero_sala != '')? set.numero_sala: '-' %></td>
+        <td><%= set.unidade %></td>
+        <td>
+            <a href="/setor/show/<%= set.id %>" >Show</a> |
+            <a href="/setor/edit/<%= set.id %>" >Edit</a> |
+            <a href="/setor/destroy/<%= set.id %>" >Delete</a>
+        </td>
+    </tr>
+    <% }) %>
+</table>
