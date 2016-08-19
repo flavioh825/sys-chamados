@@ -31,6 +31,9 @@ module.exports = {
         minLength: 6,
         required: true
     },
+    responde_chamado: {
+        type: 'integer',
+    },
     toJSON: function() {
         var obj = this.toObject();
         delete obj.senha;

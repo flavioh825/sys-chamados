@@ -1,0 +1,29 @@
+<h3>Usuarios</h3>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>ramal</th>
+        <th>Setor</th>
+        <th>Unidade</th>
+        <th>Atende</th>
+        <th></th>
+    </tr>
+    <% _.each(usuario, function(user){ %>
+    <tr data-id="<%= user.id %>" data-model="usuario">
+        <td><%= user.id %></td>
+        <td><%= user.nome %> <%= user.sobrenome %></td>
+        <td><%= user.email %></td>
+        <td><%= user.ramal %></td>
+        <td><%= user.idsetor.nome %></td>
+        <td><%= user.idsetor.unidade %></td>
+        <td><%= (user.responde_chamado != 1)? 'Não': 'Sim' %></td>
+        <td>
+            <a href="/usuario/show/<%= user.id %>" >Show</a> |
+            <a href="/usuario/edit/<%= user.id %>" >Edit</a> |
+            <a href="/usuario/destroy/<%= user.id %>" >Delete</a>
+        </td>
+    </tr>
+    <% }) %>
+</table>

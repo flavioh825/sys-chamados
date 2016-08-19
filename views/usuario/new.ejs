@@ -1,5 +1,5 @@
 <form action="/usuario/create" method="POST">
-    <h2>Novo Usuario</h2>
+    <h2>Novo Usuario </h2>
     <label>Nome:</label>
     <input type="text" name="nome" id="nome" placeholder="Nome" value="" />
     <label>Sobrenome:</label>
@@ -14,8 +14,9 @@
     <select name="idsetor" id='idsetor'>
     	<option value="">Selecione</option>
         <% _.each(setor, function(set){ %>
-    	   <option value="<%= set.id %>"><%= set.nome %></option>
+    	<option value="<%= set.id %>"><%= set.nome %></option>
         <% }) %>
     </select>
+    <input type="checkbox" name="responde_chamado" id="responde_chamado" value="1"/> Responde chamados
     <input type="submit" name="save" value="Salvar" />
 </form>

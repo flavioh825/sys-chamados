@@ -21,5 +21,15 @@ module.exports = {
             res.redirect('/usuario/');
         });
     },
+
+    index: function(req, res, next) {
+        Usuario.find().populateAll().exec(function(err, usuario){
+            if(err) return next(err);
+
+            res.view({
+                usuario: usuario
+            });
+        });
+    },
 };
 
