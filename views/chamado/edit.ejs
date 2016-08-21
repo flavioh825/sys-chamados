@@ -1,0 +1,35 @@
+<form action="/chamado/update" method="POST">
+    <h2>Novo Chamado </h2>
+    <h3>Criado por: <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %></h3>
+    <h3>E-mail: <%= chamado.idusuario.email %></h3>
+    <h3>Ramal: <%= chamado.idusuario.ramal %></h3>
+    <input type="hidden" name="idusuario" id="idusuario" value="<%= chamado.idusuario %>">
+    <label>Ocorrência:</label>
+    <input type="text" name="ocorrencia" id="ocorrencia" placeholder="Ocorrência" value="<%= chamado.ocorrencia %>" />
+    <label>Prioridade:</label>
+    <select name="prioridade" id="prioridade">
+        <option value="">Selecione</option>
+        <option value="Baixa" <%= (chamado.prioridade == 'Baixa')?'selected=selected':'' %>>Baixa</option>
+        <option value="Média" <%= (chamado.prioridade == 'Média')?'selected=selected':'' %>>Média</option>
+        <option value="Alta" <%= (chamado.prioridade == 'Alta')?'selected=selected':'' %>>Alta</option>
+    </select>
+    <label>Categoria:</label>
+    <select name="idcategoria" id='idcategoria'>
+        <option value="">Selecione</option>
+        <% _.each(categoria, function(cat){ %>
+        <option value="<%= cat.id %>" selected="<%= (cat.id == chamado.idchamado)?'selected':'' %>"><%= cat.nome %></option>
+        <% }) %>
+    </select>
+    <label>Descrição</label>
+    <textarea name="descricao" id="descricao" placeholder="Breve descrição da ocorrência"><%= chamado.descricao %></textarea>
+    <label>Situação:</label>
+    <select name="situacao" id='situacao'>
+        <option value="">Selecione</option>
+        <option value="1" <%= (chamado.situacao == 1)?'selected=selected':'' %>>Não atendido</option>
+        <option value="2" <%= (chamado.situacao == 2)?'selected=selected':'' %>>Em espera</option>
+        <option value="3" <%= (chamado.situacao == 3)?'selected=selected':'' %>>Em andamento</option>
+        <option value="4" <%= (chamado.situacao == 4)?'selected=selected':'' %>>Concluído</option>
+    </select>
+
+    <input type="submit" name="save" value="Salvar" />
+</form>

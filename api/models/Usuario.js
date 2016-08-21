@@ -42,6 +42,11 @@ module.exports = {
 
     idsetor: {
       model: 'setor'
+    },
+
+    chamados: {
+      collection: 'chamado',
+      via: 'idusuario'
     }
 
   },

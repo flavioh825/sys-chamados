@@ -1,0 +1,8 @@
+<form action="/categoria/update/<%= categoria.id %>" method="POST">
+    <h2>Editar Categoria</h2>
+    <label>Nome:</label>
+    <input type="text" name="nome" id="nome" placeholder="Nome" value="<%= categoria.nome %>" />
+    <label>Descrição</label>
+    <textarea name="descricao" id="descricao" placeholder="Breve descrição da categoria"><%= categoria.descricao %></textarea>
+    <input type="submit" name="save" value="Salvar" />
+</form>

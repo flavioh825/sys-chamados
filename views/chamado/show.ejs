@@ -1,0 +1,25 @@
+<h1><%= chamado.ocorrencia %></h1>
+<% if(chamado.situacao == 1) { %>
+    <h3>Situação: Não atendido</h3>
+<% } %>
+
+<% if(chamado.situacao == 2){ %>
+    <h3>Situação: Em espera</h3>
+<% } %>
+
+<% if(chamado.situacao == 3) { %>
+    <h3>Situação: Em andamento</h3>
+<% } %>
+
+<% if(chamado.situacao == 4) { %>
+    <h3>Situação: Concluído</h3>
+<% } %>
+
+<h3>Prioridade: <%= chamado.prioridade %></h3>
+<hr />
+<h3>Categoria: <%= chamado.idcategoria.nome %></h3>
+<h3>Criado por: <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %></h3>
+<h3>E-mail: <%= chamado.idusuario.email %></h3>
+<h3>Ramal: <%= chamado.idusuario.ramal %></h3>
+<h3>Descrição:</h3>
+<h3><%= chamado.descricao %></h3>

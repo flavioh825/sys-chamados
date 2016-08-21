@@ -36,6 +36,14 @@ module.exports.policies = {
     '*': 'isAuthenticated'
   },
 
+  'CategoriaController': {
+    '*': 'isAuthenticated'
+  },
+
+  'ChamadoController': {
+    '*': 'isAuthenticated'
+  },
+
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *

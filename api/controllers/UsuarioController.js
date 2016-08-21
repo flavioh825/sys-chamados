@@ -6,12 +6,12 @@
  */
 
 module.exports = {
-	new: function(req, res) {
-		Setor.find(function foundSetor(err, setor){
-			res.view({
-				setor: setor
-			});
-		});
+    new: function(req, res) {
+        Setor.find(function foundSetor(err, setor){
+    	res.view({
+    	   setor: setor
+    	});
+        });
     },
 
     create: function(req, res, next) {

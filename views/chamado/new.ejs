@@ -1,0 +1,24 @@
+<form action="/chamado/create" method="POST">
+    <h2>Novo Chamado </h2>
+    <input type="hidden" name="idusuario" id="idusuario" value="<%= req.user.id %>">
+    <input type="hidden" name="situacao" id="situacao" value="1">
+    <label>Ocorrência:</label>
+    <input type="text" name="ocorrencia" id="ocorrencia" placeholder="Ocorrência" value="" />
+    <label>Prioridade:</label>
+    <select name="prioridade" id="prioridade">
+        <option value="">Selecione</option>
+        <option value="Baixa">Baixa</option>
+        <option value="Média">Média</option>
+        <option value="Alta">Alta</option>
+    </select>
+    <label>Categoria:</label>
+    <select name="idcategoria" id='idcategoria'>
+        <option value="">Selecione</option>
+        <% _.each(categoria, function(cat){ %>
+        <option value="<%= cat.id %>"><%= cat.nome %></option>
+        <% }) %>
+    </select>
+    <label>Descrição</label>
+    <textarea name="descricao" id="descricao" value="" placeholder="Breve descrição da ocorrência"></textarea>
+    <input type="submit" name="save" value="Salvar" />
+</form>

@@ -9,14 +9,19 @@ module.exports = {
 
   attributes: {
 
-		nome: {
-			type: 'string',
-			required: true
-		},
-		descricao: {
-			type: 'text',
-		}
-		
+	nome: {
+		type: 'string',
+		required: true
+	},
+	descricao: {
+		type: 'text',
+	},
+
+        chamados: {
+            collection: 'chamado',
+            via: 'idcategoria'
+        }
+
   }
 };
 

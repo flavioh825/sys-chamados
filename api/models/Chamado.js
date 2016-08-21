@@ -22,7 +22,13 @@ module.exports = {
 			required: true
 		},
 		situacao: {
-			type: 'string',
+			type: 'integer', //não atendido, espera, concluído
+		},
+		idcategoria: {
+			model: 'categoria'
+		},
+		idusuario: {
+			model: 'usuario'
 		}
 
   }

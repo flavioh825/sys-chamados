@@ -1,0 +1,41 @@
+<h3>Chamados</h3>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Usuario</th>
+        <th>Categoria</th>
+        <th>Ocorrencia</th>
+        <th>Prioridade</th>
+        <th>Situação</th>
+        <th></th>
+    </tr>
+    <% _.each(chamado, function(cham){ %>
+    <tr data-id="<%= cham.id %>" data-model="chamado">
+        <td><%= cham.id %></td>
+        <td><%= cham.idusuario.nome %></td>
+        <td><%= cham.idcategoria.nome %></td>
+        <td><%= cham.ocorrencia %></td>
+        <td><%= cham.prioridade %></td>
+        <% if(cham.situacao == 1) { %>
+            <td>Não atendido</td>
+        <% } %>
+
+        <% if(cham.situacao == 2){ %>
+            <td>Em espera</td>
+        <% } %>
+
+        <% if(cham.situacao == 3) { %>
+            <td>Em andamento</td>
+        <% } %>
+
+        <% if(cham.situacao == 4) { %>
+            <td>Concluído</td>
+        <% } %>
+        <td>
+            <a href="/chamado/show/<%= cham.id %>" >Show</a> |
+            <a href="/chamado/edit/<%= cham.id %>" >Edit</a> |
+            <a href="/chamado/destroy/<%= cham.id %>" >Delete</a>
+        </td>
+    </tr>
+    <% }) %>
+</table>
