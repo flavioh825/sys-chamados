@@ -28,7 +28,7 @@ module.exports.policies = {
 
    '*': true,
 
-   'SetorController': {
+  'DepartamentoController': {
     '*': 'isAuthenticated'
   },
 

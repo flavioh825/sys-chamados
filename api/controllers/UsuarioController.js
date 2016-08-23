@@ -7,9 +7,9 @@
 
 module.exports = {
     new: function(req, res) {
-        Setor.find(function foundSetor(err, setor){
+        Departamento.find(function foundSetor(err, departamento){
     	res.view({
-    	   setor: setor
+    	   departamento: departamento
     	});
         });
     },

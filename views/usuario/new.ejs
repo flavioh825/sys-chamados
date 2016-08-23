@@ -10,11 +10,11 @@
     <input type="email" name="email" id="email" placeholder="E-mail" value="" />
     <label>Senha:</label>
     <input type="password" name="senha" id="senha" placeholder="Senha" value="" />
-    <label>Setor:</label>
-    <select name="idsetor" id='idsetor'>
+    <label>Departamento:</label>
+    <select name="iddepartamento" id='iddepartamento'>
     	<option value="">Selecione</option>
-        <% _.each(setor, function(set){ %>
-    	<option value="<%= set.id %>"><%= set.nome %></option>
+        <% _.each(departamento, function(dep){ %>
+    	<option value="<%= dep.id %>"><%= dep.nome %></option>
         <% }) %>
     </select>
     <input type="checkbox" name="responde_chamado" id="responde_chamado" value="1"/> Responde chamados

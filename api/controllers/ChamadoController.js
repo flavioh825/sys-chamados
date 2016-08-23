@@ -37,14 +37,21 @@ module.exports = {
         Chamado.findOne(req.params.id).populateAll().exec(function(err, chamado){
           if(err) return next(err);
           if(!chamado) return next();
-          res.view({
-            chamado: chamado
+          Departamento.findOne(chamado.idusuario.iddepartamento, function foundDepartamento(err, departamento){
+            RegistroOperacao.find({ where: { idchamado: req.params.id }}).populateAll().exec(function(err, registro){
+                res.view({
+                chamado: chamado,
+                departamento: departamento,
+                registro: registro
+              });
+            console.log(registro);
+            });
           });
         });
     },
 
     edit: function(req, res, next) {
-        Chamado.findOne(req.params.id).populateAll().exec(function foundSetor(err, chamado){
+        Chamado.findOne(req.params.id).populateAll().exec(function foundChamado(err, chamado){
             if(err) return next(err);
             if(!chamado) return next();
             Categoria.find(function foundCategoria(err, categoria){

@@ -5,7 +5,7 @@
         <th>Nome</th>
         <th>E-mail</th>
         <th>ramal</th>
-        <th>Setor</th>
+        <th>Departamento</th>
         <th>Unidade</th>
         <th>Atende</th>
         <th></th>
@@ -16,8 +16,8 @@
         <td><%= user.nome %> <%= user.sobrenome %></td>
         <td><%= user.email %></td>
         <td><%= user.ramal %></td>
-        <td><%= user.idsetor.nome %></td>
-        <td><%= user.idsetor.unidade %></td>
+        <td><%= user.iddepartamento.nome %></td>
+        <td><%= user.iddepartamento.unidade %></td>
         <td><%= (user.responde_chamado != 1)? 'Não': 'Sim' %></td>
         <td>
             <a href="/usuario/show/<%= user.id %>" >Show</a> |

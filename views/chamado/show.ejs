@@ -21,5 +21,24 @@
 <h3>Criado por: <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %></h3>
 <h3>E-mail: <%= chamado.idusuario.email %></h3>
 <h3>Ramal: <%= chamado.idusuario.ramal %></h3>
+<h3>Departamento: <%= departamento.nome %> - <%= departamento.andar %>º andar - 
+<%= (departamento.sala !== '')? 'Sala: '+ departamento.sala:'' %></h3>
 <h3>Descrição:</h3>
 <h3><%= chamado.descricao %></h3>
+<hr />
+
+<form action="/registrooperacao/create" method="POST">
+	<input type="hidden" name="idusuario" id="idusuario" value="<%= req.user.id %>">
+	<input type="hidden" name="idchamado" id="idchamado" value="<%= chamado.id %>">
+	<label>Registrar operação</label>
+	<textarea name="conteudo" id="conteudo"></textarea>
+	<input type="submit" value="Enviar">
+</form>
+
+<hr />
+<% if(registro){ %>
+	<% _.each(registro, function(reg){ %>
+		 <div><%= reg.idusuario.nome %> | <%= reg.conteudo %> | <%= reg.createdAt %></div>
+		 ---------------------------------------------------------
+	<% }) %>  
+<% } %>

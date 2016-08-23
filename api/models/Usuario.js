@@ -40,8 +40,8 @@ module.exports = {
         return obj;
     },
 
-    idsetor: {
-      model: 'setor'
+    iddepartamento: {
+      model: 'departamento'
     },
 
     chamados: {

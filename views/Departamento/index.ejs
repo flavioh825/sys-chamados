@@ -1,0 +1,25 @@
+<h3>Departamentos</h3>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Andar</th>
+        <th>Sala</th>
+        <th>Unidade</th>
+        <th></th>
+    </tr>
+    <% _.each(departamento, function(dep){ %>
+    <tr data-id="<%= dep.id %>" data-model="departamento">
+        <td><%= dep.id %></td>
+        <td><%= dep.nome %></td>
+        <td><%= dep.andar %></td>
+        <td><%= (dep.numero_sala != '')? dep.numero_sala: '-' %></td>
+        <td><%= dep.unidade %></td>
+        <td>
+            <a href="/departamento/show/<%= dep.id %>" >Show</a> |
+            <a href="/departamento/edit/<%= dep.id %>" >Edit</a> |
+            <a href="/departamento/destroy/<%= dep.id %>" >Delete</a>
+        </td>
+    </tr>
+    <% }) %>
+</table>
