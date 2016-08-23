@@ -29,6 +29,10 @@ module.exports = {
 		},
 		idusuario: {
 			model: 'usuario'
+		},
+		registrosOperacao:{
+			collection: 'registrooperacao',
+			via: 'idchamado'
 		}
 
   }

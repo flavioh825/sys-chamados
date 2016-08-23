@@ -47,7 +47,12 @@ module.exports = {
     chamados: {
       collection: 'chamado',
       via: 'idusuario'
-    }
+    },
+
+    registrosOperacao: {
+      collection: 'registrooperacao',
+      via: 'idusuario'
+    },
 
   },
   beforeCreate: function(usuario, cb) {
