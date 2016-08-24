@@ -37,12 +37,14 @@ module.exports.routes = {
   },
 
   'get /login': {
-       view: 'login'
+       view: 'login' //rota para view de login
   },
 
-  'post /login': 'AuthController.login',
+  'post /login': 'AuthController.login', //rota para logar no sistema
 
-  '/logout': 'AuthController.logout',
+  '/logout': 'AuthController.logout', //rota para sair do sistema
+
+  '/signup': 'UsuarioController.new', //rota para criar um usuário
 
   /***************************************************************************
   *                                                                          *

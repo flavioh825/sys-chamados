@@ -29,19 +29,20 @@ module.exports.policies = {
    '*': true,
 
   'DepartamentoController': {
-    '*': 'isAuthenticated'
+    '*': 'isAuthenticated' //para ter acesso ao CRUD chamados é necessário estar logado
   },
 
   'UsuarioController': {
-    '*': 'isAuthenticated'
+    //'*': 'isAuthenticated'
+    'index': 'isAuthenticated' //para listar usuários do sistema é necessário estar logado
   },
 
   'CategoriaController': {
-    '*': 'isAuthenticated'
+    '*': 'isAuthenticated' //para ter acesso ao CRUD categorias de chamado é necessário estar logado
   },
 
   'ChamadoController': {
-    '*': 'isAuthenticated'
+    '*': 'isAuthenticated' //para ter acesso ao CRUD chamados é necessário estar logado
   },
 
   /***************************************************************************
