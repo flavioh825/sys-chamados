@@ -37,7 +37,10 @@ module.exports.routes = {
   },
 
   'get /login': {
-       view: 'login' //rota para view de login
+       view: 'login', //rota para view de login
+       locals: {
+          layout: 'layout_login'
+       }
   },
 
   'post /login': 'AuthController.login', //rota para logar no sistema

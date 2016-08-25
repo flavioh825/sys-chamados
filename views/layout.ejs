@@ -64,25 +64,39 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuário <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="/chamado/new">Criar chamado</a></li>
+                <li><a href="/chamado">Todos os chamados</a></li>
                 <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li class="dropdown-header">Categorias de chamado</li>
+                <li><a href="/categoria/new">Nova categoria</a></li>
+                <li><a href="/categoria">lista de categoria</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chamado <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><a href="/usuario/new">Novo usuário</a></li>
+                <li><a href="/usuario">Lista de usuários</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Departamento de usuário</li>
+                <li><a href="/departamento/new">Novo departamento</a></li>
+                <li><a href="/departamento">Lista de departamento</a></li>
               </ul>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Default</a></li>
-            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
-            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Olá <%= req.user.nome %> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/usuario/edit/<%= req.user.id %>">Meus dados</a></li>
+                <li><a href="#">Trocar senha</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -90,16 +104,7 @@
 
 
   <div class="container">
-  <ul>
-    <li><a href="/usuario/new">Novo usuário</a></li>
-    <li><a href="/usuario">Lista de usuários</a></li>
-    <li><a href="/departamento/new">Novo departamento</a></li>
-    <li><a href="/departamento">Lista de departamento</a></li>
-    <li><a href="/categoria/new">Nova categoria</a></li>
-    <li><a href="/categoria">lista de categoria</a></li>
-    <li><a href="/chamado/new">Criar chamado</a></li>
-    <li><a href="/chamado">Todos os chamados</a></li>
-  </ul>
+  
     <%- body %>
 
   </div> <!-- /container -->
@@ -156,10 +161,10 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/js/jquery.min.js"></script>
     <script src="/js/js/bootstrap.min.js"></script>
     <script src="/js/js/ie-emulation-modes-warning.js"></script>
     <script src="/js/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="/js/js/jquery.min.js"></script>
     <!--SCRIPTS END-->
 
   </body>

@@ -1,7 +1,7 @@
-<h1>Login</h1>
-<form method="POST" action="/login">
-  <input type="email" name="email">
-  <input type="password" name="senha">
-  <input type="submit" value="Entrar">
+<form class="form-signin" method="POST" action="/login">
+  <h2 class="form-signin-heading">Login</h2>
+  <input type="email" name="email" class="form-control" placeholder="Digite seu e-mail" required autofocus>
+  <input type="password" name="senha" class="form-control" placeholder="Digite sua senha" required>
+  <input type="submit" class="btn btn-lg btn-primary btn-block" value="Entrar">
+  <label><a href="/signup">Cadastre-se</a></label>
 </form>
-<a href="/signup">Cadastre-se</a>

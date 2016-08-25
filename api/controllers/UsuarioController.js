@@ -8,9 +8,16 @@
 module.exports = {
     new: function(req, res) {
         Departamento.find(function foundSetor(err, departamento){
-    	res.view({
-    	   departamento: departamento
-    	});
+    	    if(req.isAuthenticated()){
+                res.view({
+                   departamento: departamento
+                });
+            }else{    
+                res.view('usuario/new', {
+    	           departamento: departamento,
+                   layout: 'layout_login'
+    	        });
+            }
         });
     },
 
