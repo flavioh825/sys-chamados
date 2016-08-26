@@ -1,30 +1,31 @@
-<%- req.flash('success') %>
+<div class="col-lg-9">
 <h3>Usuarios</h3>
-<table border="1">
-    <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>E-mail</th>
-        <th>ramal</th>
-        <th>Departamento</th>
-        <th>Unidade</th>
-        <th>Atende</th>
-        <th></th>
-    </tr>
-    <% _.each(usuario, function(user){ %>
-    <tr data-id="<%= user.id %>" data-model="usuario">
-        <td><%= user.id %></td>
-        <td><%= user.nome %> <%= user.sobrenome %></td>
-        <td><%= user.email %></td>
-        <td><%= user.ramal %></td>
-        <td><%= user.iddepartamento.nome %></td>
-        <td><%= user.iddepartamento.unidade %></td>
-        <td><%= (user.responde_chamado != 1)? 'Não': 'Sim' %></td>
-        <td>
-            <a href="/usuario/show/<%= user.id %>" >Show</a> |
-            <a href="/usuario/edit/<%= user.id %>" >Edit</a> |
-            <a href="/usuario/destroy/<%= user.id %>" >Delete</a>
-        </td>
-    </tr>
-    <% }) %>
-</table>
+    <table border="1" class="table">
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Ramal</th>
+            <th>Departamento</th>
+            <th>Unidade</th>
+            <th></th>
+        </tr>
+        <% _.each(usuario, function(user){ %>
+        <tr data-id="<%= user.id %>" data-model="usuario">
+            <td><%= user.id %></td>
+            <td><%= user.nome %> <%= user.sobrenome %></td>
+            <td><%= user.email %></td>
+            <td><%= user.ramal %></td>
+            <td><%= user.iddepartamento.nome %></td>
+            <td><%= user.iddepartamento.unidade %></td>
+            <td>
+                <div class="btn-group">
+                    <a href="/usuario/show/<%= user.id %>" class="btn btn-success" title="Visualizar dados do usuário"><i class="fa fa-eye"></i></a>
+                    <a href="/usuario/edit/<%= user.id %>" class="btn btn-info" title="Editar dados do usuário"><i class="fa fa-edit"></i></a>
+                    <a href="/usuario/destroy/<%= user.id %>" class="btn btn-danger" title="Excluir usuário"><i class="fa fa-trash"></i></a>
+                </div>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>

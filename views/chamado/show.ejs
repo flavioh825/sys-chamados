@@ -38,7 +38,16 @@
 <hr />
 <% if(registro){ %>
 	<% _.each(registro, function(reg){ %>
-		 <div><%= reg.idusuario.nome %> | <%= reg.conteudo %> | <%= reg.createdAt %></div>
-		 ---------------------------------------------------------
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		  	<%- reg.idusuario.nome %>
+		  	<div class="pull-right">
+		  		<%- reg.createdAt %>
+		  	</div>
+		  </div>
+		  <div class="panel-body">
+		  		<%- reg.conteudo %>
+		  </div>
+		</div>
 	<% }) %>  
 <% } %>

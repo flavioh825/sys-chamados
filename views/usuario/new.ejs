@@ -1,22 +1,37 @@
-<form action="/usuario/create" method="POST">
-    <h2>Novo Usuario </h2>
-    <label>Nome:</label>
-    <input type="text" name="nome" id="nome" placeholder="Nome" value="" />
-    <label>Sobrenome:</label>
-    <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" value="" />
-    <label>Ramal:</label>
-    <input type="text" name="ramal" id="ramal" placeholder="Ramal" value="" />
-    <label>E-mail:</label>
-    <input type="email" name="email" id="email" placeholder="E-mail" value="" />
-    <label>Senha:</label>
-    <input type="password" name="senha" id="senha" placeholder="Senha" value="" />
-    <label>Departamento:</label>
-    <select name="iddepartamento" id='iddepartamento'>
-    	<option value="">Selecione</option>
-        <% _.each(departamento, function(dep){ %>
-    	<option value="<%= dep.id %>"><%= dep.nome %></option>
-        <% }) %>
-    </select>
-    <input type="checkbox" name="responde_chamado" id="responde_chamado" value="1"/> Responde chamados
-    <input type="submit" name="save" value="Salvar" />
-</form>
+<div class="col-lg-6">
+    <form action="/usuario/create" method="POST">
+        <h2>Novo Usuario </h2>
+        <label>Nome:</label>
+        <div class="form-group">
+            <input type="text" name="nome" id="nome" class="form-control" placeholder="Nome" value="" />
+        </div>
+        <label>Sobrenome:</label>
+        <div class="form-group">
+            <input type="text" name="sobrenome" id="sobrenome" class="form-control" placeholder="Sobrenome" value="" />
+        </div>
+        <label>Ramal:</label>
+        <div class="form-group">
+            <input type="text" name="ramal" id="ramal" class="form-control" placeholder="Ramal" value="" />
+        </div>
+        <label>E-mail:</label>
+        <div class="form-group">
+            <input type="email" name="email" id="email" class="form-control" placeholder="E-mail" value="" />
+        </div>
+        <label>Senha:</label>
+        <div class="form-group">
+            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" value="" />
+        </div>
+        <label>Departamento:</label>
+        <div class="form-group">
+            <select name="iddepartamento" id='iddepartamento' class="form-control">
+            	<option value="">Selecione</option>
+                <% _.each(departamento, function(dep){ %>
+            	<option value="<%= dep.id %>"><%= dep.nome %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="save" class="btn btn-default pull-right" value="Salvar" />
+        </div>
+    </form>
+</div>

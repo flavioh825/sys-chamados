@@ -1,24 +1,35 @@
+<div class="col-lg-6">
 <form action="/chamado/create" method="POST">
     <h2>Novo Chamado </h2>
     <input type="hidden" name="idusuario" id="idusuario" value="<%= req.user.id %>">
     <input type="hidden" name="situacao" id="situacao" value="1">
     <label>Ocorrência:</label>
-    <input type="text" name="ocorrencia" id="ocorrencia" placeholder="Ocorrência" value="" />
+    <div class="form-group">
+        <input type="text" name="ocorrencia" id="ocorrencia" class="form-control" placeholder="Ocorrência" value="" />
+    </div>
     <label>Prioridade:</label>
-    <select name="prioridade" id="prioridade">
-        <option value="">Selecione</option>
-        <option value="Baixa">Baixa</option>
-        <option value="Média">Média</option>
-        <option value="Alta">Alta</option>
-    </select>
+    <div class="form-group">
+        <select name="prioridade" id="prioridade" class="form-control">
+            <option value="">Selecione</option>
+            <option value="Baixa">Baixa</option>
+            <option value="Média">Média</option>
+            <option value="Alta">Alta</option>
+        </select>
+    </div>
     <label>Categoria:</label>
-    <select name="idcategoria" id='idcategoria'>
-        <option value="">Selecione</option>
-        <% _.each(categoria, function(cat){ %>
-        <option value="<%= cat.id %>"><%= cat.nome %></option>
-        <% }) %>
-    </select>
+    <div class="form-group">
+        <select name="idcategoria" id='idcategoria' class="form-control">
+            <option value="">Selecione</option>
+            <% _.each(categoria, function(cat){ %>
+            <option value="<%= cat.id %>"><%= cat.nome %></option>
+            <% }) %>
+        </select>
+    </div>
     <label>Descrição</label>
-    <textarea name="descricao" id="descricao" value="" placeholder="Breve descrição da ocorrência"></textarea>
-    <input type="submit" name="save" value="Salvar" />
+    <div class="form-group">
+        <textarea name="descricao" id="descricao" value="" class="form-control" placeholder="Breve descrição da ocorrência"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="save" class="btn btn-default pull-right" value="Salvar" />
+    </div>
 </form>

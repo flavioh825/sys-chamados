@@ -1,5 +1,6 @@
+<div class="col-lg-9">
 <h3>Chamados</h3>
-<table border="1">
+<table border="1" class="table">
     <tr>
         <th>#</th>
         <th>Usuario</th>
@@ -32,10 +33,13 @@
             <td>Concluído</td>
         <% } %>
         <td>
-            <a href="/chamado/show/<%= cham.id %>" >Show</a> |
-            <a href="/chamado/edit/<%= cham.id %>" >Edit</a> |
-            <a href="/chamado/destroy/<%= cham.id %>" >Delete</a>
+            <div class="btn-group">
+                <a href="/chamado/show/<%= cham.id %>" class="btn btn-info" title="Visualizar dados do chamado"><i class="fa fa-eye"></i></a>
+                <a href="/chamado/edit/<%= cham.id %>" class="btn btn-success" title="Editar dados do chamado"><i class="fa fa-edit"></i></a>
+                <a href="/chamado/destroy/<%= cham.id %>" class="btn btn-danger" title="Excluir dados do chamado"><i class="fa fa-trash"></i></a>
+            </div>
         </td>
     </tr>
     <% }) %>
 </table>
+</div>

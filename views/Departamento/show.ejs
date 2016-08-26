@@ -1,5 +1,8 @@
-<h1><%= departamento.nome %></h1>
-<hr />
-<h3>Andar: <%= departamento.andar %>º</h3>
-<h3>Sala: <%= (departamento.numero_sala != '')? departamento.numero_sala: '-' %></h3>
-<h3>Unidade: <%= departamento.unidade %></h3>
+<h3>Visualizando Departamento</h3>
+<div class="well">
+	<h1><%= departamento.nome %></h1>
+	<hr />
+	<h4>Andar: <%= departamento.andar %>º</h4>
+	<h4>Sala: <%= (departamento.numero_sala != '')? departamento.numero_sala: '-' %></h4>
+	<h4>Unidade: <%= departamento.unidade %></h4>
+</div>

@@ -1,35 +1,48 @@
+<div class="col-lg-6">
 <form action="/chamado/update" method="POST">
-    <h2>Novo Chamado </h2>
-    <h3>Criado por: <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %></h3>
-    <h3>E-mail: <%= chamado.idusuario.email %></h3>
-    <h3>Ramal: <%= chamado.idusuario.ramal %></h3>
+    <h3>Novo Chamado </h3>
+    <h4>Criado por: <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %></h4>
+    <h4>E-mail: <%= chamado.idusuario.email %></h4>
+    <h4>Ramal: <%= chamado.idusuario.ramal %></h4>
     <input type="hidden" name="idusuario" id="idusuario" value="<%= chamado.idusuario %>">
     <label>Ocorrência:</label>
-    <input type="text" name="ocorrencia" id="ocorrencia" placeholder="Ocorrência" value="<%= chamado.ocorrencia %>" />
+    <div class="form-group">
+    <input type="text" name="ocorrencia" id="ocorrencia" class="form-control" placeholder="Ocorrência" value="<%= chamado.ocorrencia %>" />
+    </div>
     <label>Prioridade:</label>
-    <select name="prioridade" id="prioridade">
+    <div class="form-group">
+    <select name="prioridade" id="prioridade" class="form-control">
         <option value="">Selecione</option>
         <option value="Baixa" <%= (chamado.prioridade == 'Baixa')?'selected=selected':'' %>>Baixa</option>
         <option value="Média" <%= (chamado.prioridade == 'Média')?'selected=selected':'' %>>Média</option>
         <option value="Alta" <%= (chamado.prioridade == 'Alta')?'selected=selected':'' %>>Alta</option>
     </select>
+    </div>
     <label>Categoria:</label>
-    <select name="idcategoria" id='idcategoria'>
+    <div class="form-group">
+    <select name="idcategoria" id='idcategoria' class="form-control">
         <option value="">Selecione</option>
         <% _.each(categoria, function(cat){ %>
         <option value="<%= cat.id %>" selected="<%= (cat.id == chamado.idchamado)?'selected':'' %>"><%= cat.nome %></option>
         <% }) %>
     </select>
+    </div>
     <label>Descrição</label>
-    <textarea name="descricao" id="descricao" placeholder="Breve descrição da ocorrência"><%= chamado.descricao %></textarea>
+    <div class="form-group">
+    <textarea name="descricao" id="descricao" class="form-control" placeholder="Breve descrição da ocorrência"><%= chamado.descricao %></textarea>
+    </div>
     <label>Situação:</label>
-    <select name="situacao" id='situacao'>
+    <div class="form-group">
+    <select name="situacao" id='situacao' class="form-control">
         <option value="">Selecione</option>
         <option value="1" <%= (chamado.situacao == 1)?'selected=selected':'' %>>Não atendido</option>
         <option value="2" <%= (chamado.situacao == 2)?'selected=selected':'' %>>Em espera</option>
         <option value="3" <%= (chamado.situacao == 3)?'selected=selected':'' %>>Em andamento</option>
         <option value="4" <%= (chamado.situacao == 4)?'selected=selected':'' %>>Concluído</option>
     </select>
-
-    <input type="submit" name="save" value="Salvar" />
+    </div>
+    <div class="form-group">
+    <input type="submit" name="save" class="btn btn-default pull-right" value="Salvar" />
+    </div>
 </form>
+</div>

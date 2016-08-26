@@ -1,21 +1,25 @@
-<h3>Categoria</h3>
-<table border="1">
-    <tr>
-        <th>#</th>
-        <th>Nome</th>
-        <th>descrição</th>
-        <th></th>
-    </tr>
-    <% _.each(categoria, function(cat){ %>
-    <tr data-id="<%= cat.id %>" data-model="categoria">
-        <td><%= cat.id %></td>
-        <td><%= cat.nome %></td>
-        <td><%= cat.descricao %></td>
-        <td>
-            <a href="/categoria/show/<%= cat.id %>" >Show</a> |
-            <a href="/categoria/edit/<%= cat.id %>" >Edit</a> |
-            <a href="/categoria/destroy/<%= cat.id %>" >Delete</a>
-        </td>
-    </tr>
-    <% }) %>
-</table>
+<div class="col-lg-9">
+    <h3>Categoria</h3>
+    <table border="1" class="table">
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>descrição</th>
+            <th></th>
+        </tr>
+        <% _.each(categoria, function(cat){ %>
+        <tr data-id="<%= cat.id %>" data-model="categoria">
+            <td><%= cat.id %></td>
+            <td><%= cat.nome %></td>
+            <td><%= cat.descricao %></td>
+            <td>
+                <div class="btn-group">
+                    <a href="/categoria/show/<%= cat.id %>" class="btn btn-info" title="Visualizar dados do categoria"><i class="fa fa-eye"></i></a>
+                    <a href="/categoria/edit/<%= cat.id %>" class="btn btn-success" title="Visualizar dados do categoria"><i class="fa fa-edit"></i></a>
+                    <a href="/categoria/destroy/<%= cat.id %>" class="btn btn-danger" title="Visualizar dados do categoria"><i class="fa fa-trash"></i></a>
+                </div>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</div>

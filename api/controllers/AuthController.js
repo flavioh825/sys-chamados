@@ -13,10 +13,10 @@ module.exports = {
         passport.authenticate('local', function(err, user, info) {
             if ((err) || (!user)) {
                 //return res.send({
-                  //  message: info.message,
-                   // user: user
+                   // message: info.message,
+                  //  user: user
                 //});
-                req.flash('message', info.message);
+                req.flash('err_login', info.message);
                 return res.redirect('/');
             }
             req.logIn(user, function(err) {
@@ -26,7 +26,6 @@ module.exports = {
                     message: info.message,
                     user: user
                 });*/
-                req.flash('succsess', info.message);
                 res.redirect('/usuario/');
             });
 

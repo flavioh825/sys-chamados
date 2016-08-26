@@ -25,17 +25,17 @@ passport.use(new LocalStrategy({
       }
 
       bcrypt.compare(senha, usuario.senha, function (err, res) {
-          if (!res) {
+        console.log(res);
+        console.log('senha banco - '+usuario.senha)
+          if (!res) 
             return done(null, false, {
               message: '<div class="alert alert-danger"><strong>Error!</strong> - Senha Inválida.</div>'
             });
-          }
           var returnUser = {
             email: usuario.email,
             nome: usuario.nome,
             sobrenome: usuario.sobrenome,
             createdAt: usuario.createdAt,
-            responde_chamado: usuario.responde_chamado,
             id: usuario.id
           };
           return done(null, returnUser, {
