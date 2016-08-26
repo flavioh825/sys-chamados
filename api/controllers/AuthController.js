@@ -12,17 +12,22 @@ module.exports = {
 
         passport.authenticate('local', function(err, user, info) {
             if ((err) || (!user)) {
-                return res.send({
-                    message: info.message,
-                    user: user
-                });
+                //return res.send({
+                  //  message: info.message,
+                   // user: user
+                //});
+                req.flash('message', info.message);
+                return res.redirect('/');
             }
             req.logIn(user, function(err) {
                 if (err) res.send(err);
-                return res.send({
+                
+                /*return res.send({
                     message: info.message,
                     user: user
-                });
+                });*/
+                req.flash('succsess', info.message);
+                res.redirect('/usuario/');
             });
 
         })(req, res);
@@ -30,6 +35,7 @@ module.exports = {
 
     logout: function(req, res) {
         req.logout();
+        req.flash('info', '<div class="alert alert-info"><strong>Info!</strong> - Você saiu do sistema.</div>');
         res.redirect('/');
     },
 

@@ -32,11 +32,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  },
+  /*'/': {
+    view: 'homepage',
+    locals: {
+      layout: 'layout_login'
+    }
+  },*/
 
-  'get /login': {
+  'get /': {
        view: 'login', //rota para view de login
        locals: {
           layout: 'layout_login'

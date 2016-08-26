@@ -21,14 +21,15 @@ passport.use(new LocalStrategy({
     Usuario.findOne({ email: email }, function (err, usuario) {
       if (err) { return done(err); }
       if (!usuario) {
-        return done(null, false, { message: 'E-mail Incorreto.' });
+        return done(null, false, { message: '<div class="alert alert-danger"><strong>Error!</strong> - E-mail Incorreto.</div>' });
       }
 
       bcrypt.compare(senha, usuario.senha, function (err, res) {
-          if (!res)
+          if (!res) {
             return done(null, false, {
-              message: 'Senha Inválida.'
+              message: '<div class="alert alert-danger"><strong>Error!</strong> - Senha Inválida.</div>'
             });
+          }
           var returnUser = {
             email: usuario.email,
             nome: usuario.nome,
