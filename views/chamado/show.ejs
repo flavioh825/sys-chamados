@@ -1,41 +1,91 @@
-<h1><%= chamado.ocorrencia %></h1>
-<% if(chamado.situacao == 1) { %>
-    <h3>Situação: Não atendido</h3>
-<% } %>
+<h3>Visualizando Chamado</h3>
+<div class="col-lg-4">
+    <div class="col-lg-7">
+        <h3><%= chamado.ocorrencia %></h3>
+    </div>
+    <div class="col-lg-7">
+        <% if(chamado.situacao == 1) { %>
+            <label>Situação:</label> Não atendido
+        <% } %>
 
-<% if(chamado.situacao == 2){ %>
-    <h3>Situação: Em espera</h3>
-<% } %>
+        <% if(chamado.situacao == 2){ %>
+            <label>Situação:</label> Em espera
+        <% } %>
 
-<% if(chamado.situacao == 3) { %>
-    <h3>Situação: Em andamento</h3>
-<% } %>
+        <% if(chamado.situacao == 3) { %>
+            <label>Situação:</label> Em andamento
+        <% } %>
 
-<% if(chamado.situacao == 4) { %>
-    <h3>Situação: Concluído</h3>
-<% } %>
+        <% if(chamado.situacao == 4) { %>
+            <label>Situação:</label> Concluído
+        <% } %>
+    </div>
+    <div class="col-sm-7">
+        <label>Prioridade:</label> <%= chamado.prioridade %>
+    </div>
+    <div class="col-sm-7">
+        <label>Categoria:</label> <%= chamado.idcategoria.nome %>
+    </div>
+    <div class="col-sm-7">
+        <label>Criado por:</label> <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %>
+    </div>
+    <div class="col-sm-7">
+        <label>E-mail:</label> <%= chamado.idusuario.email %>
+    </div>
+    <div class="col-sm-7">
+            <label>Ramal: </label><%= chamado.idusuario.ramal %></h3>
+    </div>
+    <div class="col-sm-7">
+        <label>Departamento:</label> <%= departamento.nome %> - <%= departamento.andar %>º andar -
+<%= (departamento.sala !== '')? 'Sala: '+ departamento.sala:'' %>
+    </div>
+</div>
+<div class="col-lg-8 thumbnail">
+    <div class="col-sm-12">
+        <label>Descrição:</label>
+        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">Registrar Operação</button>
+    </div>
+    <div class="col-sm-12">
+        <p><%= chamado.descricao %></p>
+    </div>
+</div>
 
-<h3>Prioridade: <%= chamado.prioridade %></h3>
-<hr />
-<h3>Categoria: <%= chamado.idcategoria.nome %></h3>
-<h3>Criado por: <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %></h3>
-<h3>E-mail: <%= chamado.idusuario.email %></h3>
-<h3>Ramal: <%= chamado.idusuario.ramal %></h3>
-<h3>Departamento: <%= departamento.nome %> - <%= departamento.andar %>º andar - 
-<%= (departamento.sala !== '')? 'Sala: '+ departamento.sala:'' %></h3>
-<h3>Descrição:</h3>
-<h3><%= chamado.descricao %></h3>
-<hr />
 
-<form action="/registrooperacao/create" method="POST">
-	<input type="hidden" name="idusuario" id="idusuario" value="<%= req.user.id %>">
-	<input type="hidden" name="idchamado" id="idchamado" value="<%= chamado.id %>">
-	<label>Registrar operação</label>
-	<textarea name="conteudo" id="conteudo"></textarea>
-	<input type="submit" value="Enviar">
-</form>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-<hr />
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action="/registrooperacao/create" method="POST">
+                        <input type="hidden" name="idusuario" id="idusuario" value="<%= req.user.id %>">
+                        <input type="hidden" name="idchamado" id="idchamado" value="<%= chamado.id %>">
+                        <label>Registrar operação</label>
+                                 <div class="form-group">
+                                    <textarea name="conteudo" id="conteudo" class="form-control"></textarea>
+                                 </div>
+                                 <div class="form-group">
+                                    <input type="submit" value="Enviar" class="btn btn-default pull-right">
+                                 </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="col-sm-8">
 <% if(registro){ %>
 	<% _.each(registro, function(reg){ %>
 		<div class="panel panel-default">
@@ -49,5 +99,6 @@
 		  		<%- reg.conteudo %>
 		  </div>
 		</div>
-	<% }) %>  
+	<% }) %>
 <% } %>
+</div>
