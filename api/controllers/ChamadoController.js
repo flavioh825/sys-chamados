@@ -44,7 +44,6 @@ module.exports = {
                 departamento: departamento,
                 registro: registro
               });
-            console.log(registro);
             });
           });
         });
@@ -66,6 +65,18 @@ module.exports = {
     update: function(req, res, next) {
         Chamado.update(req.params.id, req.params.all(), function chamadoUpdated(err){
             if(err){
+                req.flash('err_situacao', 'Erro ao alterar a situação do chamado.');
+                return res.redirect('/chamado/edit/'+req.params.id);
+            }
+            req.flash('success_situacao', 'Chamado Alterado com sucesso.');
+            res.redirect('/chamado/show/'+req.params.id);
+        });
+    },
+
+    updateSituacao: function(req, res, next) {
+        Chamado.update(req.params.id, { situacao: req.params.situacao }, function chamadoSituacaoUpdated(err){
+            if(err){
+
                 return res.redirect('/chamado/edit/'+req.params.id);
             }
 

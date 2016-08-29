@@ -1,9 +1,12 @@
 <h3>Visualizando Chamado</h3>
 <div class="col-lg-4">
-    <div class="col-lg-7">
+    <div class="col-lg-10">
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#alteraSituacao">Alterar Situação</button>
+    </div>
+    <div class="col-lg-10">
         <h3><%= chamado.ocorrencia %></h3>
     </div>
-    <div class="col-lg-7">
+    <div class="col-lg-10">
         <% if(chamado.situacao == 1) { %>
             <label>Situação:</label> Não atendido
         <% } %>
@@ -20,30 +23,39 @@
             <label>Situação:</label> Concluído
         <% } %>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-10">
         <label>Prioridade:</label> <%= chamado.prioridade %>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-10">
+        <label>Criado em:</label> <%= chamado.createdAt %>
+    </div>
+    <div class="col-sm-10">
         <label>Categoria:</label> <%= chamado.idcategoria.nome %>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-10">
         <label>Criado por:</label> <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-10">
         <label>E-mail:</label> <%= chamado.idusuario.email %>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-10">
             <label>Ramal: </label><%= chamado.idusuario.ramal %></h3>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-10">
         <label>Departamento:</label> <%= departamento.nome %> - <%= departamento.andar %>º andar -
-<%= (departamento.sala !== '')? 'Sala: '+ departamento.sala:'' %>
+<%= (departamento.numero_sala !== '')? 'Sala: '+ departamento.numero_sala:'Sala sem número.' %>
     </div>
+    <% if(chamado.situacao == 4){ %>
+    <div class="col-sm-10 well text-center">
+        <h4>Chamado Concluído</h4>
+        <h4><%= chamado.updatedAt %></h4>
+    </div>
+    <% } %>
 </div>
 <div class="col-lg-8 thumbnail">
     <div class="col-sm-12">
         <label>Descrição:</label>
-        <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal">Registrar Operação</button>
+        <button type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#registroOperacao">Registrar Operação</button>
     </div>
     <div class="col-sm-12">
         <p><%= chamado.descricao %></p>
@@ -51,15 +63,15 @@
 </div>
 
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<!-- Modal - Registro de operação-->
+<div id="registroOperacao" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Registro de Operação</h4>
       </div>
       <div class="modal-body">
             <div class="panel">
@@ -82,10 +94,49 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
-<div class="col-sm-8">
+
+<!-- Modal - SITUAÇÃO -->
+<div id="alteraSituacao" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Alterar Situação</h4>
+      </div>
+      <div class="modal-body">
+            <div class="panel">
+                <div class="panel-body">
+                    <form action="/chamado/update/<%= chamado.id %>" method="POST">
+                        <input type="hidden" name="idusuario" id="idusuario" value="<%= req.user.id %>">
+                        <label>Situação:</label>
+                        <div class="form-group">
+                        <select name="situacao" id='situacao' class="form-control">
+                            <option value="">Selecione</option>
+                            <option value="1" <%= (chamado.situacao == 1)?'selected=selected':'' %>>Não atendido</option>
+                            <option value="2" <%= (chamado.situacao == 2)?'selected=selected':'' %>>Em espera</option>
+                            <option value="3" <%= (chamado.situacao == 3)?'selected=selected':'' %>>Em andamento</option>
+                            <option value="4" <%= (chamado.situacao == 4)?'selected=selected':'' %>>Concluído</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                        <input type="submit" name="save" class="btn btn-default pull-right" value="Alterar Situação" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-8" style="height: 600px; overflow-y: auto;">
 <% if(registro){ %>
 	<% _.each(registro, function(reg){ %>
 		<div class="panel panel-default">

@@ -25,8 +25,6 @@ passport.use(new LocalStrategy({
       }
 
       bcrypt.compare(senha, usuario.senha, function (err, res) {
-        console.log(res);
-        console.log('senha banco - '+usuario.senha)
           if (!res) 
             return done(null, false, {
               message: '<div class="alert alert-danger"><strong>Error!</strong> - Senha Inválida.</div>'

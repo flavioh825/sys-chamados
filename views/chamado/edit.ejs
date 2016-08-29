@@ -1,5 +1,5 @@
 <div class="col-lg-6">
-<form action="/chamado/update" method="POST">
+<form action="/chamado/update/<%= chamado.id %>" method="POST">
     <h3>Novo Chamado </h3>
     <h4>Criado por: <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %></h4>
     <h4>E-mail: <%= chamado.idusuario.email %></h4>
