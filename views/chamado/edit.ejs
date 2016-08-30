@@ -4,7 +4,7 @@
     <h4>Criado por: <%= chamado.idusuario.nome %> <%= chamado.idusuario.sobrenome %></h4>
     <h4>E-mail: <%= chamado.idusuario.email %></h4>
     <h4>Ramal: <%= chamado.idusuario.ramal %></h4>
-    <input type="hidden" name="idusuario" id="idusuario" value="<%= chamado.idusuario %>">
+    <input type="hidden" name="idusuario" id="idusuario" value="<%= chamado.idusuario.id %>">
     <label>Ocorrência:</label>
     <div class="form-group">
     <input type="text" name="ocorrencia" id="ocorrencia" class="form-control" placeholder="Ocorrência" value="<%= chamado.ocorrencia %>" />
@@ -23,7 +23,16 @@
     <select name="idcategoria" id='idcategoria' class="form-control">
         <option value="">Selecione</option>
         <% _.each(categoria, function(cat){ %>
-        <option value="<%= cat.id %>" selected="<%= (cat.id == chamado.idchamado)?'selected':'' %>"><%= cat.nome %></option>
+        <option value="<%= cat.id %>" <%= (cat.id == chamado.idcategoria.id)?'selected=selected':'' %>><%= cat.nome %></option>
+        <% }) %>
+    </select>
+    </div>
+    <label>Enviado para:</label>
+    <div class="form-group">
+    <select name="iddepartamento" id='iddepartamento' class="form-control">
+        <option value="">Selecione</option>
+        <% _.each(departamento, function(dep){ %>
+        <option value="<%= dep.id %>" <%= (dep.id == chamado.iddepartamento.id)?'selected=selected':'' %>><%= dep.nome %></option>
         <% }) %>
     </select>
     </div>

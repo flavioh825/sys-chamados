@@ -9,8 +9,11 @@ module.exports = {
 
     new: function(req, res) {
         Categoria.find(function foundCategoria(err, categoria){
-            res.view({
-                categoria: categoria
+            Departamento.find(function foundDepartamento(err, departamento){
+                res.view({
+                    categoria: categoria,
+                    departamento: departamento
+                });
             });
         });
     },
@@ -24,7 +27,7 @@ module.exports = {
     },
 
     index: function(req, res, next) {
-        Chamado.find().populateAll().exec(function foundChamado(err, chamado){
+        Chamado.find({or : [{ idusuario: req.user.id }, { iddepartamento: req.user.iddepartamento }]}).populateAll().exec(function foundChamado(err, chamado){
             if(err) return next(err);
 
             res.view({

@@ -27,6 +27,9 @@ module.exports = {
 		idcategoria: {
 			model: 'categoria'
 		},
+		iddepartamento: {
+			model: 'departamento'
+		},
 		idusuario: {
 			model: 'usuario'
 		},

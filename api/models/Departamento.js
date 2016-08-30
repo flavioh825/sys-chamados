@@ -28,6 +28,11 @@ module.exports = {
     usuarios: {
         collection: 'usuario',
         via: 'iddepartamento'
+    },
+
+    chamados: {
+        collection: 'chamado',
+        via: 'iddepartamento'
     }
 
   }

@@ -25,6 +25,15 @@
             <% }) %>
         </select>
     </div>
+    <label>Enviar para:</label>
+    <div class="form-group">
+        <select name="iddepartamento" id='iddepartamento' class="form-control">
+            <option value="">Selecione</option>
+            <% _.each(departamento, function(dep){ %>
+            <option value="<%= dep.id %>"><%= dep.nome %></option>
+            <% }) %>
+        </select>
+    </div>
     <label>Descrição</label>
     <div class="form-group">
         <textarea name="descricao" id="descricao" value="" class="form-control" placeholder="Breve descrição da ocorrência"></textarea>

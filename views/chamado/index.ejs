@@ -1,4 +1,4 @@
-<div class="col-lg-9">
+<div class="col-lg-12">
 <h3>Chamados</h3>
 <table border="1" class="table">
     <tr>
@@ -7,6 +7,7 @@
         <th>Categoria</th>
         <th>Ocorrencia</th>
         <th>Prioridade</th>
+        <th>Enviado para</th>
         <th>Situação</th>
         <th></th>
     </tr>
@@ -17,6 +18,7 @@
         <td><%= cham.idcategoria.nome %></td>
         <td><%= cham.ocorrencia %></td>
         <td><%= cham.prioridade %></td>
+        <td><%= cham.iddepartamento.nome %></td>
         <% if(cham.situacao == 1) { %>
             <td>Não atendido</td>
         <% } %>

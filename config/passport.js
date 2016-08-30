@@ -33,6 +33,7 @@ passport.use(new LocalStrategy({
             email: usuario.email,
             nome: usuario.nome,
             sobrenome: usuario.sobrenome,
+            iddepartamento: usuario.iddepartamento,
             createdAt: usuario.createdAt,
             id: usuario.id
           };
