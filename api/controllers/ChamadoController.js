@@ -27,12 +27,18 @@ module.exports = {
     },
 
     index: function(req, res, next) {
-        Chamado.find({or : [{ idusuario: req.user.id }, { iddepartamento: req.user.iddepartamento }]}).populateAll().exec(function foundChamado(err, chamado){
+        Chamado.find({or : [
+                            { idusuario: req.user.id }, 
+                            { iddepartamento: req.user.iddepartamento }
+                           ], 
+                        sort: 'createdAt'
+                    }).populateAll().exec(function foundChamado(err, chamado){
             if(err) return next(err);
 
             res.view({
                 chamado: chamado
             });
+            console.log(chamado);
         });
     },
 

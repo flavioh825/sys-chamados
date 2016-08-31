@@ -24,11 +24,11 @@ module.exports = {
 		situacao: {
 			type: 'integer', //não atendido, espera, concluído
 		},
-		idcategoria: {
-			model: 'categoria'
-		},
 		iddepartamento: {
 			model: 'departamento'
+		},
+		idcategoria: {
+			model: 'categoria'
 		},
 		idusuario: {
 			model: 'usuario'

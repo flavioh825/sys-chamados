@@ -50,7 +50,7 @@ module.exports = {
     registrosOperacao: {
       collection: 'registrooperacao',
       via: 'idusuario'
-    },
+    }
 
   },
   beforeCreate: function(usuario, cb) {

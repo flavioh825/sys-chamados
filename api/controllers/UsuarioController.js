@@ -30,7 +30,7 @@ module.exports = {
     },
 
     index: function(req, res, next) {
-        Usuario.find().populateAll().exec(function(err, usuario){
+        Usuario.find().populate('iddepartamento').exec(function(err, usuario){
             if(err) return next(err);
 
             res.view({
