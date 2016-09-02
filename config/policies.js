@@ -34,7 +34,8 @@ module.exports.policies = {
 
   'UsuarioController': {
     //'*': 'isAuthenticated'
-    'index': 'isAuthenticated' //para listar usuários do sistema é necessário estar logado
+    'index': 'isAuthenticated', //para listar usuários do sistema é necessário estar logado
+    'mudaSenha': 'isAuthenticated'
   },
 
   'CategoriaController': {

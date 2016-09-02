@@ -52,6 +52,15 @@ module.exports.routes = {
 
   '/signup': 'UsuarioController.new', //rota para criar um usuário
 
+  '/forgot': {
+      view: 'forgot',
+      locals: {
+          layout: 'layout_login'
+      }
+  },
+
+  'post /rescue': 'AuthController.changePassword', //rota para logar no sistema
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
