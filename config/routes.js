@@ -61,6 +61,8 @@ module.exports.routes = {
 
   'post /rescue': 'AuthController.changePassword', //rota para logar no sistema
 
+  '/email': 'EmailController.sendEmail'
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
