@@ -77,7 +77,7 @@ module.exports = {
                                         secure: true, // use SSL
                                         auth: {
                                             user: 'flavioh825@gmail.com',
-                                            pass: 'S@lv@t10n'
+                                            pass: 'xxxxxxxx'
                                         }
                                     };
 
