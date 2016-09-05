@@ -51,7 +51,6 @@ module.exports = {
       collection: 'registrooperacao',
       via: 'idusuario'
     }
-
   },
   beforeCreate: function(usuario, cb) {
 	bcrypt.genSalt(10, function(err, salt) {
@@ -66,5 +65,6 @@ module.exports = {
 	    });
 	});
   }
+
 };
 

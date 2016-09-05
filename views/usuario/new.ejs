@@ -1,5 +1,12 @@
 <div class="col-lg-6">
-    <form action="/usuario/create" method="POST">
+    <form action="/usuario/create" method="POST" class="form-usuario-new">
+        <% if(flash && flash.err) { %>
+            <div class="alert alert-success">
+                <% Object.keys(flash.err).forEach(function(error){ %>
+                   <p> <%- JSON.stringify(flash.err[error]) %></p>
+                <% }) %>
+            </div>
+        <% } %>
         <h2>Novo Usuario </h2>
         <label>Nome:</label>
         <div class="form-group">

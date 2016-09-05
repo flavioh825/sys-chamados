@@ -39,6 +39,8 @@ module.exports.routes = {
     }
   },*/
 
+  '*': 'flash',
+
   'get /': {
        view: 'login', //rota para view de login
        locals: {

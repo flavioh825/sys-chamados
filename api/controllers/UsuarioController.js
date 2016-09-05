@@ -9,6 +9,7 @@ var bcrypt = require('bcryptjs');
 
 module.exports = {
     new: function(req, res) {
+        res.locals.flash = _.clone(req.session.flash);
         Departamento.find(function foundSetor(err, departamento){
     	    if(req.isAuthenticated()){
                 res.view({
@@ -21,13 +22,21 @@ module.exports = {
     	        });
             }
         });
+        req.session.flash = {};
     },
 
     create: function(req, res, next) {
         Usuario.create( req.params.all(), function usuarioCreated(err, usuario){
-            if(err) return next(err);
-
-            res.redirect('/usuario/');
+            if(err) {
+                console.log(err);
+                req.session.flash = {
+                    err: err
+                }
+                //return next(err);
+                return res.redirect('/signup');
+            }
+            res.redirect('/usuario');
+            req.session.flash = {};
         });
     },
 
